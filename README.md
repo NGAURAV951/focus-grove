@@ -2,59 +2,55 @@
 
 **A little space to do what matters.**
 
-Focus Grove is a calm, accessible focus companion for adults, children, and grandparents. Each mode adjusts the language, suggested session lengths, and reading comfort while keeping the core experience familiar.
+Focus Grove is a calm, accessible focus companion made for adults, children, and grandparents. It adapts session lengths, language, and reading comfort for each mode without asking people to learn a different app.
 
-## Features
+## What it does
 
-- Three modes: Adults, Kids, and Grandparents
-- Focus timer with start, pause, resume, and reset
-- Mode-specific timer presets and encouraging messages
-- Separate task lists for each mode
-- Daily focus totals and a seven-day progress overview
-- Optional completion chime (off by default)
-- Responsive layout, keyboard focus states, semantic controls, and reduced-motion support
-- Local-first storage: tasks and session history stay in the current browser
-- No account, analytics, server, third-party JavaScript, external fonts, or dependencies required
+- **Three modes:** Adults, Kids, and Grandparents, each with its own suggested timer lengths and language.
+- **Focus timer:** Start, pause, resume, and reset sessions.
+- **Personal task lists:** Add, finish, and remove tasks. Lists are separate for each mode.
+- **Progress overview:** Today’s completed focus minutes, finished sessions, and a rolling seven-day chart.
+- **Optional completion chime:** Off until enabled.
+- **Accessible by design:** Responsive layout, keyboard focus states, clear labels, and reduced-motion support.
+- **Local-first privacy:** Task lists and completed sessions stay in the browser's local storage. No account, analytics, database, or third-party scripts.
 
 ## Run locally
 
-Open `index.html` in a modern browser. For a local server, run:
+Open `index.html` in any modern browser. No installation or build step is needed.
+
+For a local server, run:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then visit `http://localhost:8000`.
+Then open `http://localhost:8000`.
 
-## Checks
+## Publish with GitHub Pages
 
-With Node.js 18 or newer:
+This repository includes a GitHub Actions workflow at `.github/workflows/pages.yml`. It deploys the static app whenever a commit is pushed to `main`.
 
-```bash
-npm run check
-npm test
+If the workflow reports that Pages is not enabled, open **Settings → Pages** and select **GitHub Actions** under **Build and deployment → Source**. The site URL is:
+
+**https://ngaurav951.github.io/focus-grove/**
+
+Monitor deployment progress in the [Actions tab](https://github.com/NGAURAV951/focus-grove/actions).
+
+## Project structure
+
+```text
+focus-grove/
+├── index.html                 # Complete app (HTML, CSS, and JavaScript)
+├── README.md                  # Setup and project documentation
+├── LICENSE                    # MIT license
+└── .github/workflows/pages.yml # Automatic Pages deployment
 ```
 
-These smoke checks cover essential structure and project behavior; they are not a substitute for comprehensive browser end-to-end testing.
-
-## Deploy with GitHub Pages
-
-The repository includes a GitHub Actions workflow that publishes the static website to GitHub Pages whenever changes are pushed to `main`. In the repository, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions** if it is not already selected. Once the workflow finishes, the public site should be available at:
-
-https://ngaurav951.github.io/focus-grove/
+Keeping the first version in a single HTML file makes it easy to host, inspect, and modify without a package manager or framework.
 
 ## Privacy and limitations
 
-All tasks and session history are saved in the browser's local storage; they are not uploaded to a server. Clearing browser data clears those records. The timer uses browser timing and is intended for everyday focus sessions, not precision timing. Kids mode is a supportive focus aid, not parental-control software. Focus Grove is a productivity tool, not a medical or diagnostic application.
-
-## Project files
-
-- `index.html` — accessible page structure
-- `styles.css` — visual system and responsive layouts
-- `app.js` — timer, tasks, progress, and local persistence
-- `favicon.svg` — matching leaf mark
-- `tests/smoke-check.mjs` — dependency-free structural smoke checks
-- `.github/workflows/pages.yml` — GitHub Pages deployment
+Tasks and session history are stored in the current browser only; they are not synced between devices. Clearing browser data removes those records. Browser timers may be throttled when a tab is in the background, so this is intended for everyday focus sessions, not precision timing. Kids mode is a supportive focus aid, not parental-control software. Focus Grove is a productivity tool, not a medical or diagnostic application.
 
 ## License
 
