@@ -1,0 +1,25 @@
+{
+  "id": "./",
+  "name": "Focus Grove — Make room for what matters",
+  "short_name": "Focus Grove",
+  "description": "A calm focus companion for adults, children, and grandparents.",
+  "lang": "en",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f4f3ed",
+  "theme_color": "#234c3b",
+  "categories": [
+    "productivity",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "./icons/focus-grove.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
