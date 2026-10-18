@@ -10,6 +10,7 @@ Focus Grove is a calm, accessible focus companion made for adults, children, and
 - **Focus timer:** Start, pause, resume, and reset sessions.
 - **Personal task lists:** Add, finish, and remove tasks. Lists are separate for each mode.
 - **Progress overview:** Today’s completed focus minutes, finished sessions, and a rolling seven-day chart.
+- **Focus Garden (original feature):** Every completed session grows a personal garden through seed, sprout, bloom, and grove stages—without streak pressure.
 - **Optional completion chime:** Off until enabled.
 - **Accessible by design:** Responsive layout, keyboard focus states, clear labels, and reduced-motion support.
 - **Local-first privacy:** Task lists and completed sessions stay in the browser's local storage. No account, analytics, database, or third-party scripts.
