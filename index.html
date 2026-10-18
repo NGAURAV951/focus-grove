@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f4f3ed">
-<meta name="description" content="Focus Grove is a calm, accessible focus companion for adults, children, and grandparents.">
+<meta name="description" content="Focus Grove is a calm, accessible focus companion for adults, children, and grandparents.">\n<link rel="manifest" href="./manifest.webmanifest">\n<link rel="icon" type="image/svg+xml" href="./icons/focus-grove.svg">\n<link rel="apple-touch-icon" href="./icons/focus-grove.svg">\n<meta name="apple-mobile-web-app-capable" content="yes">\n<meta name="apple-mobile-web-app-title" content="Focus Grove">\n<meta name="mobile-web-app-capable" content="yes">
 <title>Focus Grove — Make room for what matters</title>
 <style>
 :root{--paper:#f4f3ed;--white:#fffefa;--ink:#24352c;--muted:#798178;--line:#e5e5dc;--green:#234c3b;--green2:#315d49;--mint:#e4eee5;--lime:#d6e6a8;--peach:#f3d7c8;--radius:24px;--shadow:0 10px 40px rgba(36,53,44,.06)}
@@ -25,7 +25,7 @@
 <div class="side-foot"><span class="dot"></span>Your focus, your pace</div>
 </aside>
 <main class="main" id="main">
-<header class="topbar" id="top"><div class="date-label"><span class="date-dot"></span><span id="date-label">YOUR LITTLE CORNER FOR TODAY</span></div><button class="quiet-btn" id="sound-btn" type="button" aria-pressed="false">♫ &nbsp;<span id="sound-label">Sound off</span></button></header>
+<header class="topbar" id="top"><div class="date-label"><span class="date-dot"></span><span id="date-label">YOUR LITTLE CORNER FOR TODAY</span></div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end"><button class="quiet-btn" id="install-btn" type="button" hidden>＋ Install app</button><button class="quiet-btn" id="sound-btn" type="button" aria-pressed="false">♫ &nbsp;<span id="sound-label">Sound off</span></button></div></header>
 <section class="welcome">
 <div><p class="eyebrow" id="eyebrow">A KINDER KIND OF PRODUCTIVITY</p><h1 id="headline">Make a little room<br> for what <em>matters.</em></h1><p class="sub" id="subtitle">A calm place to focus, take a breath, and start again whenever you need.</p></div>
 <div class="mode-wrap"><span class="mode-label">THIS SPACE IS FOR</span><div class="mode-picker" role="group" aria-label="Choose your experience"><button class="mode-btn" data-mode="adult" aria-pressed="true" type="button">◈ Adults</button><button class="mode-btn" data-mode="child" aria-pressed="false" type="button">✿ Kids</button><button class="mode-btn" data-mode="grandparent" aria-pressed="false" type="button">☼ Grandparents</button></div></div>
@@ -91,7 +91,7 @@ document.querySelectorAll("[data-mode]").forEach(b=>b.addEventListener("click",(
 $("task-form").addEventListener("submit",e=>{e.preventDefault();const field=$("task-input");if(!field.value.trim()){field.focus();return}addTask(field.value);field.value="";field.focus()});
 $("sound-btn").addEventListener("click",()=>{sound=!sound;$("sound-btn").setAttribute("aria-pressed",String(sound));$("sound-label").textContent=sound?"Sound on":"Sound off";showToast(sound?"Completion sound enabled.":"Completion sound muted.")});
 document.querySelectorAll(".nav-link").forEach(a=>a.addEventListener("click",()=>{document.querySelectorAll(".nav-link").forEach(x=>x.classList.remove("active"));a.classList.add("active")}));
-window.addEventListener("beforeunload",stopTicker);
+window.addEventListener("beforeunload",stopTicker);\nlet installPrompt=null;\nconst installBtn=$("install-btn");\nwindow.addEventListener("beforeinstallprompt",event=>{event.preventDefault();installPrompt=event;installBtn.hidden=false});\ninstallBtn.addEventListener("click",async()=>{if(!installPrompt){showToast("Use your browser menu and choose Install app or Add to Home Screen.");return}installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;installBtn.hidden=true});\nwindow.addEventListener("appinstalled",()=>{installBtn.hidden=true;showToast("Focus Grove is installed. Happy focusing!")});\nif("serviceWorker" in navigator && location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
 renderPresets();renderTimer();renderTasks();renderStats();renderChart();
 })();
 </script>
